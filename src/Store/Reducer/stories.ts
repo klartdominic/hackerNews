@@ -1,15 +1,10 @@
 import { ActionTypes } from '../Action-Types';
 import { Action } from '../Actions/index';
-
-export interface Stories {
-    id: number,
-    stories: string | null,
-    body: string | null,
-}
+import { StoriesModel } from '../../Models/index'
 
 type StoriesState = {
     isPending: boolean,
-    stories: Stories[],
+    stories: StoriesModel[],
     topStories: number[],
     error: string | null,
 }

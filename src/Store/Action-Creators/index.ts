@@ -9,7 +9,7 @@ export const getTopNews = () => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({ type: ActionTypes.GET_STORIES_PENDING});
 
-        return Http.get('topstories.json').then(response => {
+        return Http.get<number[]>('topstories.json').then(response => {
             console.log('response', response);
 
             if(response.status === isSuccess){
