@@ -1,7 +1,7 @@
 import './App.css';
 import Stories from './screens/Page/Story';
 import { Provider } from 'react-redux'
-import { store } from './screens/Store/index'
+import { store } from './Store/index'
 
 function App() {
   return (
