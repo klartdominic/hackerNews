@@ -25,15 +25,22 @@
 
 .story {
   display: flex;
-  justify-content: center;
-  width: 90%;
+  width: 50%;
   flex-wrap: wrap;
   background-color: white;
   margin: 5px;
-  padding: 15;
+  padding: 20px;
+  border-radius: 5px;
 }
 
-@media (max-width: 800){
+@media (max-width: 700px){
+  .stories {
+    width: 95%;
+  }
+
+  .story {
+    width: 95%;
+  }
   
 }
 
