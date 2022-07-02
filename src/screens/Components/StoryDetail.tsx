@@ -1,7 +1,7 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC} from 'react'
 import '../CSS/index.css'
 import { StoriesResponseModel, UsersResponseModel } from '../../Models/index'
-import { useTypedSelector } from '../../Hooks/useTypedSelector';
+import moment from 'moment';
 
 interface Props {
     story: StoriesResponseModel | undefined,
@@ -23,7 +23,7 @@ const StoryDetail: FC<Props> = ({story, user}) => {
         </li>
         <li className='story__container'>
             <div className='story__header_title'>Time: </div>
-            <div className='story__header_body'>{story?.time}</div>
+            <div className='story__header_body'>{moment(story?.time).toString()}</div>
         </li>
         <li className='story__container'>
             <div className='story__header_title'>Score: </div>
