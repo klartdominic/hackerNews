@@ -14,7 +14,7 @@ const StoryDetail: FC<Props> = ({story, user}) => {
   return (
     <div className='story'>
         <li className='story__container'>
-            <div className='story__header_title'>Title: </div>
+            <span className='story__header_title'>Title: </span>
             <div className='story__header_body'>{story?.title}</div>
         </li>
         <li className='story__container'>
