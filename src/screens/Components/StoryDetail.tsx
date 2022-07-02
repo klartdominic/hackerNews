@@ -2,6 +2,7 @@ import React, {FC} from 'react'
 import '../CSS/index.css'
 import { StoriesResponseModel, UsersResponseModel } from '../../Models/index'
 import moment from 'moment';
+import {imageSample} from '../../Assets/index'
 
 interface Props {
     story: StoriesResponseModel | undefined,
@@ -13,6 +14,9 @@ const StoryDetail: FC<Props> = ({story, user}) => {
     
   return (
     <div className='story'>
+        <li className='story__container'>
+            <img src={imageSample} alt="imageSample" />
+        </li>
         <li className='story__container'>
             <span className='story__header_title'>Title: </span>
             <div className='story__header_body'>{story?.title}</div>
