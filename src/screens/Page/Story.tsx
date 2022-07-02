@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useActions } from '../../Hooks/useActions';
 import { useTypedSelector } from '../../Hooks/useTypedSelector';
 import '../CSS/index.css';
@@ -7,29 +7,32 @@ import { StoriesList } from '../Components';
 
 
 const Stories: FC = () => {
-    const { getTopNews } = useActions();
-    const { topStories } = useTypedSelector(state => state.stories)
-    const [stories , setStories] = useState<number []>([])
+    const { getTopNews, getItems, getUsers } = useActions();
+    const { topStories, stories, isUsersDone, isDone, isItemsDone } = useTypedSelector(state => state.stories)
+
+    useEffect(() => {
+        getTopNews();
+    }, []);
 
     useEffect(()=>{
-        getTopNews()
-    },[])
-
-    useEffect(()=>{
-        if(topStories){
-            setStories(getMultipleRandom(topStories, 10));
+        if(topStories && isDone){
+            getItems([...topStories]);
         }
-    },[topStories])
+    }, [topStories , isDone])
 
-    const getMultipleRandom = (arr:number[], num: number) => {
-        const shuffled = [...arr].sort(()=> 0.5 - Math.random()) ;
+    useEffect(()=>{
+        if(stories.length){
+            if(stories.length === topStories.length ){
+                getUsers([...stories])
+            } 
+        }
+        
+    },[stories, isItemsDone])
 
-        return shuffled.slice(0, num);
-    }
 
     return <div className='container'>
         <span className='headertitle'>Hacker News</span>
-        <StoriesList stories={stories} />
+        {isUsersDone && <StoriesList stories={stories} />}
     </div>
 }
 

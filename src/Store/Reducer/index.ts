@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import {reducer as stories} from "./stories";
 
 const reducers = combineReducers({
-    stories: stories
+    stories
 })
 
 export default reducers
